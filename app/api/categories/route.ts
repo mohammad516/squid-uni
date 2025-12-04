@@ -3,13 +3,21 @@ import { getDb } from '@/libs/mongodb';
 
 export const revalidate = 10; // Revalidate every 10 seconds
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
+    const { searchParams } = new URL(request.url);
+    const clientsOnly = searchParams.get('clients') === 'true';
+    
     const db = await getDb();
     const collection = db.collection('Category');
     
+    // Build query - if clientsOnly, only get categories with clientLogo
+    const query = clientsOnly 
+      ? { clientLogo: { $exists: true, $ne: null } }
+      : {};
+    
     const categories = await collection
-      .find({})
+      .find(query)
       .sort({ createdAt: -1 })
       .toArray();
 
@@ -20,6 +28,7 @@ export async function GET() {
       slug: category.slug,
       description: category.description || '',
       title: category.title,
+      clientLogo: category.clientLogo || null,
     }));
 
     return NextResponse.json(transformedCategories);
@@ -34,4 +43,6 @@ export async function GET() {
     );
   }
 }
+
+
 

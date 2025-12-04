@@ -2,32 +2,27 @@
 
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 /**
  * ClientsCarousel - JS-driven smooth infinite marquee
  *
  * ملاحظات:
- * - ضع صورك في public/customers logo/
+ * - البيانات الآن ديناميكية من قاعدة البيانات
  * - يمكنك تعديل speedPxPerSec لزيادة/تقليل السرعة (بيكسل/ثانية)
  * - نستخدم loading="eager" + unoptimized لتقليل layout-shift من next/image.
  */
 
-const clientLogos = [
-  "advanced.png",
-  "alshams1.png",
-  "allotaxi.png",
-  "aoun.png",
-  "black.png",
-  "carr.png",
-  "cremino1.png",
-  "emsherif.png",
-  "hola.png",
-  "metro.png",
-  "pat.png",
-  "sant.png",
-];
+interface ClientCategory {
+  id: string;
+  title: string;
+  slug: string;
+  clientLogo: string;
+}
 
 export default function ClientsCarousel() {
+  const [clientCategories, setClientCategories] = useState<ClientCategory[]>([]);
+  const [loading, setLoading] = useState(true);
   const trackRef = useRef<HTMLDivElement | null>(null);      // يحتوي المجموعتين
   const groupRef = useRef<HTMLDivElement | null>(null);      // يشير للمجموعة الأولى (لقياس العرض)
   const rafRef = useRef<number | null>(null);
@@ -39,6 +34,27 @@ export default function ClientsCarousel() {
 
   const speedPxPerSec = 60; // عدل السرعة (بيكسل / ثانية)
 
+  // جلب البيانات من API
+  useEffect(() => {
+    const fetchClientCategories = async () => {
+      try {
+        const response = await fetch('/api/categories?clients=true');
+        if (response.ok) {
+          const data = await response.json();
+          // Filter to only include categories with clientLogo
+          const filtered = data.filter((cat: any) => cat.clientLogo);
+          setClientCategories(filtered);
+        }
+      } catch (error) {
+        console.error('Error fetching client categories:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchClientCategories();
+  }, []);
+
   // زيادة العد عند تحميل كل صورة - نستخدم هذا للتأكد من قياس العرض بعد تحميل الصور
   const handleImageLoad = useCallback(() => {
     setImagesLoadedCount((c) => c + 1);
@@ -46,6 +62,8 @@ export default function ClientsCarousel() {
 
   // قياس عرض المجموعة الأولى (بالبكسل) بعد تحميل الصور أو عند تغيير حجم الشاشة
   useEffect(() => {
+    if (clientCategories.length === 0) return;
+
     const measure = () => {
       const g = groupRef.current;
       if (g) {
@@ -56,7 +74,7 @@ export default function ClientsCarousel() {
     };
 
     // ننتظر حتى تُحمّل الصور (أو بعد فاصل قصير كاحتياط)
-    if (imagesLoadedCount >= clientLogos.length) {
+    if (imagesLoadedCount >= clientCategories.length * 2) { // *2 لأن لدينا مجموعتين
       // قياس بعد تأكيد التحميل
       measure();
     }
@@ -73,7 +91,7 @@ export default function ClientsCarousel() {
       window.removeEventListener("resize", measure);
       if (ro && groupRef.current) ro.disconnect();
     };
-  }, [imagesLoadedCount]);
+  }, [imagesLoadedCount, clientCategories.length]);
 
   // animation loop
   useEffect(() => {
@@ -123,6 +141,29 @@ export default function ClientsCarousel() {
   const onTouchStart = () => setIsPaused(true);
   const onTouchEnd = () => setIsPaused(false);
 
+  if (loading) {
+    return (
+      <section className="relative py-12 md:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+            <span className="bg-gradient-to-r from-[#171717] via-[#DA0037] to-[#171717] bg-clip-text text-transparent">
+              Our Clients
+            </span>
+          </h2>
+          <div className="flex gap-4 justify-center">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="w-[220px] h-[140px] bg-gray-200 animate-pulse rounded" />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (clientCategories.length === 0) {
+    return null;
+  }
+
   return (
     <section className="relative py-12 md:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -154,36 +195,40 @@ export default function ClientsCarousel() {
           >
             {/* GROUP 1 */}
             <div ref={groupRef} className="carousel-group-js">
-              {clientLogos.map((logo, i) => (
-                <div key={`g1-${i}`} className="carousel-item-js">
-                  <Image
-                    src={`/customers logo/${logo}`}
-                    alt={logo.replace(".png", "")}
-                    width={900}
-                    height={400}
-                    loading="eager"
-                    unoptimized
-                    onLoadingComplete={handleImageLoad}
-                    className="object-contain"
-                  />
+              {clientCategories.map((category, i) => (
+                <div key={`g1-${category.id}`} className="carousel-item-js">
+                  <Link href={`/category/${category.slug}`} className="block w-full h-full">
+                    <Image
+                      src={category.clientLogo}
+                      alt={category.title}
+                      width={900}
+                      height={400}
+                      loading="eager"
+                      unoptimized
+                      onLoadingComplete={handleImageLoad}
+                      className="object-contain"
+                    />
+                  </Link>
                 </div>
               ))}
             </div>
 
             {/* GROUP 2 (نسخة مكررة للانفينيتي) */}
             <div className="carousel-group-js">
-              {clientLogos.map((logo, i) => (
-                <div key={`g2-${i}`} className="carousel-item-js">
-                  <Image
-                    src={`/customers logo/${logo}`}
-                    alt={logo.replace(".png", "")}
-                    width={900}
-                    height={400}
-                    loading="eager"
-                    unoptimized
-                    onLoadingComplete={handleImageLoad}
-                    className="object-contain"
-                  />
+              {clientCategories.map((category, i) => (
+                <div key={`g2-${category.id}`} className="carousel-item-js">
+                  <Link href={`/category/${category.slug}`} className="block w-full h-full">
+                    <Image
+                      src={category.clientLogo}
+                      alt={category.title}
+                      width={900}
+                      height={400}
+                      loading="eager"
+                      unoptimized
+                      onLoadingComplete={handleImageLoad}
+                      className="object-contain"
+                    />
+                  </Link>
                 </div>
               ))}
             </div>

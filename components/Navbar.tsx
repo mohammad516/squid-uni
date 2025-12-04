@@ -13,6 +13,7 @@ interface Category {
   title: string;
   slug: string;
   description: string;
+  clientLogo?: string | null;
 }
 
 export default function Navbar() {
@@ -38,7 +39,9 @@ export default function Navbar() {
         const response = await fetch('/api/categories');
         if (response.ok) {
           const data = await response.json();
-          setCategories(data);
+          // Filter out categories that have clientLogo (client categories)
+          const filteredCategories = data.filter((category: Category) => !category.clientLogo);
+          setCategories(filteredCategories);
         }
       } catch (error) {
         console.error('Error fetching categories:', error);

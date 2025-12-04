@@ -62,3 +62,5 @@ Database → Website Format:
 - `name` → color name
 - `hexCode` → hex code for display
 
+
+

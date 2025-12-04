@@ -272,8 +272,8 @@ export default function Hero() {
             </motion.a>
             
             <motion.a
-              href="/categories"
-              aria-label="View Products"
+              href="/clients"
+              aria-label="View Clients"
               className="group relative inline-flex w-full sm:w-auto items-center justify-center rounded-full border-2 border-white/90 backdrop-blur-sm px-4 sm:px-8 py-2.5 sm:py-4 text-xs sm:text-base font-semibold text-white overflow-hidden min-h-[40px] sm:min-h-[56px]"
               whileHover={{ scale: 1.05, borderColor: "#DA0037" }}
               whileTap={{ scale: 0.95 }}

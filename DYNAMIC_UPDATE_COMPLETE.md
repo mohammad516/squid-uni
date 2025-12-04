@@ -148,3 +148,5 @@ The category page and related components have been successfully updated to fetch
 - Loading states added for better UX
 - TypeScript interfaces added for type safety
 
+
+

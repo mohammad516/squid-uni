@@ -1,6 +1,6 @@
 // About page inspired by Contact.tsx style and AboutPreviewSection color palette
 "use client";
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { Heart, Sparkles, Leaf, ChevronDown, HeartPulse, Brain, Building2, Shield, ShoppingBag, Briefcase, Car, Users } from "lucide-react";
 import Image from "next/image";
@@ -275,23 +275,36 @@ const WellnessPhilosophySection = () => {
 
 // Customers Logos Section
 const CustomersLogosSection = () => {
-  const clientLogos = useMemo(() => [
-    "advanced.png",
-    "alshams1.png",
-    "allotaxi.png",
-    "aoun.png",
-    "black.png",
-    "carr.png",
-    "cremino1.png",
-    "emsherif.png",
-    "hola.png",
-    "metro.png",
-    "pat.png",
-    "sant.png",
-  ], []);
+  const [clientCategories, setClientCategories] = useState<Array<{
+    id: string;
+    title: string;
+    slug: string;
+    clientLogo: string;
+  }>>([]);
+  const [loading, setLoading] = useState(true);
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    const fetchClientCategories = async () => {
+      try {
+        const response = await fetch('/api/categories?clients=true');
+        if (response.ok) {
+          const data = await response.json();
+          // Filter to only include categories with clientLogo
+          const filtered = data.filter((cat: any) => cat.clientLogo);
+          setClientCategories(filtered);
+        }
+      } catch (error) {
+        console.error('Error fetching client categories:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchClientCategories();
+  }, []);
 
   return (
     <motion.section
@@ -320,36 +333,66 @@ const CustomersLogosSection = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#DA0037] to-transparent mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
-          {clientLogos.map((logo, index) => (
-            <motion.div
-              key={logo}
-              initial={{ opacity: 0, y: 30, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.9 }}
-              transition={{ 
-                duration: 0.6, 
-                delay: 0.3 + index * 0.1,
-                type: "spring",
-                stiffness: 100
-              }}
-              whileHover={{ 
-                y: -12, 
-                scale: 1.08,
-                transition: { duration: 0.3 }
-              }}
-              className="group relative flex items-center justify-center h-48 md:h-64 lg:h-80"
-            >
-              <Image
-                src={`/customers logo/${logo}`}
-                alt={logo.replace(".png", "").replace(/_/g, " ")}
-                width={800}
-                height={320}
-                loading="lazy"
-                className="object-contain h-full w-auto opacity-90 group-hover:opacity-100 transition-all duration-500 grayscale-0 group-hover:scale-110 drop-shadow-md group-hover:drop-shadow-lg"
+        {loading ? (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+            {[...Array(8)].map((_, index) => (
+              <div
+                key={index}
+                className="h-48 md:h-64 lg:h-80 bg-gray-200 animate-pulse rounded-xl"
               />
-            </motion.div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : clientCategories.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-lg text-[#171717]/60">No client logos available</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+            {clientCategories.map((category, index) => (
+              <Link
+                key={category.id}
+                href={`/category/${category.slug}`}
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                  animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.9 }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: 0.3 + index * 0.1,
+                    type: "spring",
+                    stiffness: 100
+                  }}
+                  whileHover={{ 
+                    y: -12, 
+                    scale: 1.08,
+                    transition: { duration: 0.3 }
+                  }}
+                  className="group relative flex items-center justify-center h-48 md:h-64 lg:h-80 cursor-pointer"
+                >
+                  {/* Logo Image */}
+                  <Image
+                    src={category.clientLogo}
+                    alt={category.title}
+                    width={800}
+                    height={320}
+                    loading="lazy"
+                    className="object-contain h-full w-auto opacity-90 group-hover:opacity-60 transition-all duration-500 grayscale-0 group-hover:scale-110 drop-shadow-md group-hover:drop-shadow-lg z-10 relative"
+                  />
+                  
+                  {/* Hover Overlay with "View Products" */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#DA0037]/95 via-[#DA0037]/90 to-[#DA0037]/95 backdrop-blur-[2px] rounded-xl flex items-center justify-center z-20 shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out">
+                    <div className="text-center px-4 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-75 ease-out">
+                      <p className="text-white font-bold text-base md:text-lg lg:text-xl tracking-wider mb-3 drop-shadow-lg transform scale-95 group-hover:scale-100 transition-transform duration-300 delay-150">
+                        View Products
+                      </p>
+                      <div className="h-[2px] bg-white mx-auto rounded-full shadow-lg w-0 group-hover:w-[70%] transition-all duration-500 delay-200 ease-out" />
+                    </div>
+                  </div>
+                </motion.div>
+              </Link>
+            ))}
+          </div>
+        )}
 
         {/* Decorative elements */}
         <motion.div
