@@ -84,7 +84,7 @@ export default function CategoryPage() {
 
   if (loading) {
     return (
-      <main className="relative">
+      <main className="relative w-full overflow-x-hidden">
         <Navbar />
         <div className="min-h-screen flex items-center justify-center bg-[#EAEAEA] pt-24">
           <div className="text-center">
@@ -98,7 +98,7 @@ export default function CategoryPage() {
 
   if (error || !category) {
     return (
-      <main className="relative">
+      <main className="relative w-full overflow-x-hidden">
         <Navbar />
         <div className="min-h-screen flex items-center justify-center bg-[#EAEAEA] pt-24">
           <div className="text-center">
@@ -118,7 +118,7 @@ export default function CategoryPage() {
   }
 
   return (
-    <main className="relative">
+    <main className="relative w-full overflow-x-hidden">
       <Navbar />
       <div className="min-h-screen bg-[#EAEAEA] pt-24">
         <div className="container mx-auto px-4 py-12 md:py-16">

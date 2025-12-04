@@ -9,7 +9,7 @@ const AboutPage = dynamic(() => import("@/components/About"), {
 
 export default function About() {
   return (
-    <main className="relative min-h-screen bg-white">
+    <main className="relative min-h-screen bg-white w-full overflow-x-hidden">
       <Navbar />
       <Suspense fallback={<div className="min-h-screen" />}>
         <AboutPage />

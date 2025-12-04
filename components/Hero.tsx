@@ -251,7 +251,7 @@ export default function Hero() {
                 className="absolute inset-0 bg-gradient-to-r from-[#DA0037] to-[#DA0037] opacity-0 group-hover:opacity-100"
                 transition={{ duration: 0.3 }}
               />
-              <span className="relative z-10 flex items-center gap-1.5 sm:gap-2">
+              <span className="relative z-10 flex items-center gap-1.5 sm:gap-2 translate-x-2 sm:translate-x-0">
                 Contact Us
                 <motion.svg
                   className="w-4 h-4 sm:w-5 sm:h-5"

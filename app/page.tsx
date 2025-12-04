@@ -20,7 +20,7 @@ const ClientsCarousel = dynamic(() => import("@/components/ClientsCarousel"), {
 
 export default function HomePage() {
   return (
-    <main className="relative">
+    <main className="relative w-full overflow-x-hidden">
       <Navbar />
       <Hero />
       <Suspense fallback={<div className="min-h-[400px]" />}>

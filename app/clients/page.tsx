@@ -9,7 +9,7 @@ const Client = dynamic(() => import("@/components/Client"), {
 
 export default function ClientPage() {
   return (
-    <main className="relative min-h-screen bg-white">
+    <main className="relative min-h-screen bg-white w-full overflow-x-hidden">
       <Navbar />
       <Suspense fallback={<div className="min-h-screen" />}>
         <Client />

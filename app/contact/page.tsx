@@ -9,7 +9,7 @@ const Contact = dynamic(() => import("@/components/Contact"), {
 
 export default function ContactPage() {
   return (
-    <main className="relative min-h-screen bg-white">
+    <main className="relative min-h-screen bg-white w-full overflow-x-hidden">
       <Navbar />
       <Suspense fallback={<div className="min-h-screen" />}>
         <Contact />
