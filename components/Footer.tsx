@@ -126,7 +126,7 @@ const Footer = () => (
             }}
           >
             <Image 
-              src="/logo3.png" 
+              src="/newlogo.png" 
               alt="Squadlink Logo" 
               width={180}
               height={180}
@@ -180,7 +180,7 @@ const Footer = () => (
               whileHover={{ scale: 1.05 }}
             >
               <Mail className="w-4 h-4 text-[#171717]" />
-              thesquadlinkcompany@gmail.com
+              Thesquadlinkcompany@gmail.com
             </motion.a>
           </div>
         </div>

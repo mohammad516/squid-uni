@@ -217,7 +217,7 @@ const ContactInfoCard = ({ icon: Icon, title, content, subtitle, delay = 0 }: {
             {content}
           </div>
           {subtitle && (
-            <p className="text-sm text-[#171717]/70 mt-2 italic break-words">{subtitle}</p>
+            <p className="text-xs sm:text-sm text-[#171717]/70 mt-2 italic whitespace-nowrap sm:whitespace-normal">{subtitle}</p>
           )}
         </div>
       </div>
@@ -299,7 +299,7 @@ const ContactForm = () => {
           >
             Send us a Message
           </h2>
-          <p className="text-[#171717]/90 text-lg">
+          <p className="text-[#171717]/90 text-sm sm:text-base md:text-lg whitespace-nowrap sm:whitespace-normal">
             We&apos;ll get back to you within 24 hours
           </p>
         </div>
@@ -644,8 +644,8 @@ const Contact = () => {
                     title="Hours"
                     content={
                       <div className="space-y-1">
-                        <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
-                        <p>Saturday & Sunday: Closed</p>
+                        <p className="text-sm sm:text-base whitespace-nowrap sm:whitespace-normal">Monday - Friday: 9:00 AM - 5:00 PM</p>
+                        <p className="text-sm sm:text-base">Saturday & Sunday: Closed</p>
                       </div>
                     }
                     delay={0.4}

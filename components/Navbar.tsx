@@ -110,7 +110,7 @@ export default function Navbar() {
                 }}
               >
                 <Image
-                  src="/logo3.png"
+                  src="/newlogo.png"
                   alt=""
                   width={150}
                   height={150}
@@ -122,7 +122,7 @@ export default function Navbar() {
             </div>
           )}
           <Image
-            src="/logo3.png"
+            src="/newlogo.png"
             alt="Squadlink Logo"
             width={150}
             height={150}
@@ -336,7 +336,7 @@ export default function Navbar() {
         >
           <div className="space-y-6 px-6 pb-8 pt-4">
             <div className="flex items-center justify-center py-2">
-              <Image src="/logo3.png" alt="Squadlink Logo" width={140} height={140} className="h-28 w-28 object-contain" />
+              <Image src="/newlogo.png" alt="Squadlink Logo" width={140} height={140} className="h-28 w-28 object-contain" />
             </div>
             <ul className={`divide-y ${isContactPage || isCategoryPage ? "divide-neutral-200 dark:divide-neutral-700" : scrolled ? "divide-neutral-200 dark:divide-neutral-700" : "divide-white/20"}`}>
               <li>
