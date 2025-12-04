@@ -12,7 +12,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden w-full">
       {/* Animated Background matching AboutPreviewSection */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#EDEDED] via-[#EDEDED] to-[#DA0037]/20">
         {/* Subtle background pattern */}
@@ -199,7 +199,8 @@ const ContactInfoCard = ({ icon: Icon, title, content, subtitle, delay = 0 }: {
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.6, delay }}
       whileHover={{ y: -5, scale: 1.02 }}
-      className="group bg-white/70 backdrop-blur-md rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 border border-white/50"
+      className="group bg-white/70 backdrop-blur-md rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 border border-white/50 w-full"
+      style={{ willChange: 'transform', transform: 'translateZ(0)' }}
     >
       <div className="flex items-start space-x-4">
         <motion.div 
@@ -280,7 +281,8 @@ const ContactForm = () => {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="bg-white/70 backdrop-blur-md rounded-2xl shadow-xl p-8 md:p-10 border border-white/50"
+        className="bg-white/70 backdrop-blur-md rounded-2xl shadow-xl p-8 md:p-10 border border-white/50 w-full"
+        style={{ willChange: 'transform', transform: 'translateZ(0)' }}
       >
         <div className="text-center mb-8">
           <motion.div
@@ -573,26 +575,27 @@ const MapSection = () => {
 // Main Contact Component
 const Contact = () => {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen w-full overflow-x-hidden">
       {/* Hero Section */}
       <HeroSection />
       
       {/* Main Content */}
-      <div className="relative z-10 bg-gradient-to-br from-[#EDEDED] via-[#EDEDED] to-[#DA0037]/20">
+      <div className="relative z-10 bg-gradient-to-br from-[#EDEDED] via-[#EDEDED] to-[#DA0037]/20 w-full">
         {/* Subtle background pattern */}
         <div className="absolute inset-0 opacity-[0.03]">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(8,217,214,0.15)_1px,transparent_0)] bg-[length:20px_20px]" />
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 overflow-x-hidden">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-20">
             {/* Left Column - Contact Information */}
-            <div className="space-y-12">
+            <div className="space-y-12 w-full min-w-0">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
+                style={{ willChange: 'transform', transform: 'translateZ(0)' }}
               >
                 <h2 
                   className="text-4xl font-bold text-[#171717] mb-12 tracking-wide"
@@ -655,7 +658,7 @@ const Contact = () => {
             </div>
 
             {/* Right Column - Contact Form */}
-            <div id="contact-form">
+            <div id="contact-form" className="w-full min-w-0">
               <ContactForm />
             </div>
           </div>
