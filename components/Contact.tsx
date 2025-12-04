@@ -202,22 +202,22 @@ const ContactInfoCard = ({ icon: Icon, title, content, subtitle, delay = 0 }: {
       className="group bg-white/70 backdrop-blur-md rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 border border-white/50 w-full"
       style={{ willChange: 'transform', transform: 'translateZ(0)' }}
     >
-      <div className="flex items-start space-x-4">
+      <div className="flex items-start space-x-4 w-full">
         <motion.div 
           className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#DA0037] to-[#DA0037] rounded-2xl flex items-center justify-center group-hover:from-[#DA0037] group-hover:to-[#DA0037] transition-all duration-300 shadow-sm"
           whileHover={{ rotate: 5, scale: 1.1 }}
         >
           <Icon className="w-6 h-6 text-white group-hover:text-white transition-colors duration-300" />
         </motion.div>
-        <div className="flex-1">
+        <div className="flex-1 min-w-0">
           <h3 className="text-xl font-semibold text-[#171717] mb-2 group-hover:text-[#DA0037] transition-colors duration-300">
             {title}
           </h3>
-          <div className="text-[#171717]/90 leading-relaxed">
+          <div className="text-[#171717]/90 leading-relaxed text-sm sm:text-base">
             {content}
           </div>
           {subtitle && (
-            <p className="text-sm text-[#171717]/70 mt-2 italic">{subtitle}</p>
+            <p className="text-sm text-[#171717]/70 mt-2 italic break-words">{subtitle}</p>
           )}
         </div>
       </div>
