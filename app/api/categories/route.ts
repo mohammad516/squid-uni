@@ -22,7 +22,7 @@ export async function GET(request: Request) {
       .toArray();
 
     // Transform to match the expected format
-    const transformedCategories = categories.map(category => ({
+    const transformedCategories = categories.map((category: any) => ({
       id: category._id.toString(),
       name: category.title,
       slug: category.slug,

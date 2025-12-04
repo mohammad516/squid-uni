@@ -13,7 +13,7 @@ export async function GET() {
       .sort({ createdAt: -1 })
       .toArray();
 
-    const transformedColors = colors.map(color => ({
+    const transformedColors = colors.map((color: any) => ({
       id: color._id.toString(),
       name: color.name,
       hexCode: color.hexCode,

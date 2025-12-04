@@ -45,7 +45,7 @@ export async function GET(
     const colorMapById = new Map();
     const colorMapByString = new Map();
     
-    allColors.forEach(color => {
+    allColors.forEach((color: any) => {
       const colorIdString = color._id.toString();
       const colorObject = {
         id: colorIdString,
@@ -57,7 +57,7 @@ export async function GET(
     });
 
     // Transform products with full color object
-    const transformedProducts = products.map(product => {
+    const transformedProducts = products.map((product: any) => {
       // Get color using product.colorId (which should match Color._id)
       let color = null;
       
@@ -92,7 +92,7 @@ export async function GET(
 
     // Get unique colors for this category's products with hexCodes
     const uniqueColorMap = new Map<string, string>();
-    transformedProducts.forEach(product => {
+    transformedProducts.forEach((product: any) => {
       if (product.color && product.color.name && product.color.hexCode) {
         const colorName = product.color.name.toLowerCase();
         uniqueColorMap.set(colorName, product.color.hexCode);
