@@ -33,6 +33,7 @@ export default function ClientsCarousel() {
   const [imagesLoadedCount, setImagesLoadedCount] = useState(0);
 
   const speedPxPerSec = 60; // عدل السرعة (بيكسل / ثانية)
+  const GAP_BETWEEN_ITEMS = 28; // يجب أن يطابق gap في CSS
 
   // جلب البيانات من API
   useEffect(() => {
@@ -67,32 +68,61 @@ export default function ClientsCarousel() {
     const measure = () => {
       const g = groupRef.current;
       if (g) {
-        // في Safari، استخدم scrollWidth للحصول على العرض الدقيق
-        const rect = g.getBoundingClientRect();
-        const scrollWidth = g.scrollWidth;
-        const offsetWidth = g.offsetWidth;
-        // استخدم أكبر قيمة لضمان الدقة في Safari
-        const w = Math.max(scrollWidth, offsetWidth, rect.width);
-        setGroupWidth(Math.round(w));
+        // طريقة محسّنة لقياس العرض في Safari
+        // نحسب العرض يدوياً بجمع عرض كل عنصر + الـ gaps
+        const children = Array.from(g.children) as HTMLElement[];
+        if (children.length === 0) return;
+
+        let totalWidth = 0;
+        
+        children.forEach((child, index) => {
+          const rect = child.getBoundingClientRect();
+          totalWidth += rect.width;
+          // أضف gap بعد كل عنصر عدا الأخير
+          if (index < children.length - 1) {
+            totalWidth += GAP_BETWEEN_ITEMS;
+          }
+        });
+
+        // إذا فشل الحساب اليدوي، استخدم scrollWidth كبديل
+        if (totalWidth === 0 || isNaN(totalWidth)) {
+          const scrollWidth = g.scrollWidth;
+          const offsetWidth = g.offsetWidth;
+          totalWidth = Math.max(scrollWidth, offsetWidth);
+        }
+
+        // أضف buffer صغير (2px) لضمان عدم التداخل في Safari
+        const finalWidth = Math.ceil(totalWidth) + 2;
+        setGroupWidth(finalWidth);
       }
     };
 
-    // ننتظر حتى تُحمّل الصور (أو بعد فاصل قصير كاحتياط)
-    if (imagesLoadedCount >= clientCategories.length * 2) { // *2 لأن لدينا مجموعتين
-      // قياس بعد تأكيد التحميل
-      measure();
+    // ننتظر حتى تُحمّل الصور + timeout صغير لضمان أن Safari قد قاس العناصر
+    if (imagesLoadedCount >= clientCategories.length * 2) {
+      // قياس بعد تأكيد التحميل + timeout صغير
+      setTimeout(() => {
+        measure();
+      }, 100); // 100ms timeout لضمان أن Safari قد قاس العناصر
     }
 
     // قياس أيضاً عند تغيير حجم النافذة
     const ro = new ResizeObserver(() => {
-      // إعادة قياس
-      measure();
+      // إعادة قياس بعد timeout صغير
+      setTimeout(() => {
+        measure();
+      }, 50);
     });
     if (groupRef.current) ro.observe(groupRef.current);
 
-    window.addEventListener("resize", measure);
+    const handleResize = () => {
+      setTimeout(() => {
+        measure();
+      }, 50);
+    };
+    
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener("resize", measure);
+      window.removeEventListener("resize", handleResize);
       if (ro && groupRef.current) ro.disconnect();
     };
   }, [imagesLoadedCount, clientCategories.length]);
@@ -265,6 +295,8 @@ export default function ClientsCarousel() {
           -webkit-box-align: center;
           -webkit-align-items: center;
           align-items: center;
+          min-width: -webkit-fit-content;
+          min-width: fit-content;
         }
 
         /* عنصر الشعار - نعطي عرض ثابت متجاوب لثبات القياسات */
@@ -285,6 +317,8 @@ export default function ClientsCarousel() {
           box-sizing: border-box;
           -webkit-flex-shrink: 0;
           flex-shrink: 0;
+          min-width: 220px;
+          position: relative;
         }
 
         .carousel-item-js :global(img) {
@@ -301,6 +335,7 @@ export default function ClientsCarousel() {
           .carousel-item-js {
             -webkit-flex: 0 0 260px;
             flex: 0 0 260px;
+            min-width: 260px;
             height: 160px;
             gap: 32px;
           }
@@ -310,6 +345,7 @@ export default function ClientsCarousel() {
           .carousel-item-js {
             -webkit-flex: 0 0 320px;
             flex: 0 0 320px;
+            min-width: 320px;
             height: 200px;
           }
         }
