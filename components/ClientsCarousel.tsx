@@ -67,8 +67,12 @@ export default function ClientsCarousel() {
     const measure = () => {
       const g = groupRef.current;
       if (g) {
-        // استخدم scrollWidth أو offsetWidth (أي منهما أدق حسب المحتوى)
-        const w = g.getBoundingClientRect().width;
+        // في Safari، استخدم scrollWidth للحصول على العرض الدقيق
+        const rect = g.getBoundingClientRect();
+        const scrollWidth = g.scrollWidth;
+        const offsetWidth = g.offsetWidth;
+        // استخدم أكبر قيمة لضمان الدقة في Safari
+        const w = Math.max(scrollWidth, offsetWidth, rect.width);
         setGroupWidth(Math.round(w));
       }
     };
@@ -123,7 +127,10 @@ export default function ClientsCarousel() {
         // نحرك بقيمة سالبة (نحو اليسار)
         const x = -offsetRef.current;
         // translate by px (نستخدم backface و translate3d لتسريع GPU)
-        trackRef.current.style.transform = `translate3d(${x}px, 0, 0)`;
+        const transformValue = `translate3d(${x}px, 0, 0)`;
+        trackRef.current.style.transform = transformValue;
+        // Safari webkit prefix
+        (trackRef.current.style as any).webkitTransform = transformValue;
       }
 
       rafRef.current = requestAnimationFrame(step);
@@ -191,7 +198,8 @@ export default function ClientsCarousel() {
               // لا تضع transition هنا — لأننا نستخدم rAF
               willChange: "transform",
               transform: "translate3d(0,0,0)",
-            }}
+              backfaceVisibility: "hidden",
+            } as React.CSSProperties}
           >
             {/* GROUP 1 */}
             <div ref={groupRef} className="carousel-group-js">
@@ -239,32 +247,59 @@ export default function ClientsCarousel() {
       <style jsx>{`
         .carousel-track-js {
           gap: 0;
+          -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+          -webkit-perspective: 1000px;
+          perspective: 1000px;
         }
 
         .carousel-group-js {
+          display: -webkit-box;
+          display: -webkit-flex;
           display: flex;
+          -webkit-flex-wrap: nowrap;
           flex-wrap: nowrap;
           gap: 28px; /* المسافة بين الشعارات */
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+          align-items: center;
         }
 
         /* عنصر الشعار - نعطي عرض ثابت متجاوب لثبات القياسات */
         .carousel-item-js {
+          -webkit-flex: 0 0 220px;
           flex: 0 0 220px;
+          display: -webkit-box;
+          display: -webkit-flex;
           display: flex;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
           align-items: center;
+          -webkit-box-pack: center;
+          -webkit-justify-content: center;
           justify-content: center;
           height: 140px;
+          -webkit-box-sizing: border-box;
           box-sizing: border-box;
+          -webkit-flex-shrink: 0;
+          flex-shrink: 0;
         }
 
         .carousel-item-js :global(img) {
           height: 100%;
           width: auto;
           display: block;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+          -webkit-transform: translateZ(0);
+          transform: translateZ(0);
         }
 
         @media (min-width: 640px) {
           .carousel-item-js {
+            -webkit-flex: 0 0 260px;
             flex: 0 0 260px;
             height: 160px;
             gap: 32px;
@@ -273,6 +308,7 @@ export default function ClientsCarousel() {
 
         @media (min-width: 1024px) {
           .carousel-item-js {
+            -webkit-flex: 0 0 320px;
             flex: 0 0 320px;
             height: 200px;
           }
