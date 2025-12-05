@@ -56,16 +56,19 @@ export default function ProductGrid({ products }: ProductGridProps) {
                   className="object-contain group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              <Link href={`/product/${product.id}`}>
-                <div className="p-4">
-                  <h3 className="font-semibold text-[#171717] mb-1 group-hover:text-[#DA0037] transition-colors">
-                    {product.name || product.title}
-                  </h3>
-                  <p className="text-sm text-[#171717]/60 capitalize">
+              <div className="p-4">
+                <h3 
+                  className="font-semibold text-[#171717] mb-1 group-hover:text-[#DA0037] transition-colors cursor-pointer"
+                  onClick={() => setSelectedImage(product.image)}
+                >
+                  {product.name || product.title}
+                </h3>
+                <Link href={`/product/${product.id}`}>
+                  <p className="text-sm text-[#171717]/60 capitalize hover:text-[#DA0037] transition-colors">
                     {product.color?.name || product.colorName || 'unknown'}
                   </p>
-                </div>
-              </Link>
+                </Link>
+              </div>
             </div>
           </motion.div>
         ))}
