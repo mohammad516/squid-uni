@@ -126,7 +126,7 @@ const Footer = () => (
             }}
           >
             <Image 
-              src="/newlogo.png" 
+              src="https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764940757/newlogo_mhmsom.webp" 
               alt="Squadlink Logo" 
               width={180}
               height={180}

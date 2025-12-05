@@ -5,9 +5,9 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const HERO_IMAGES = [
-  "/1.jpg",
-  "/2.jpg",
-  "/3.jpg",
+  "https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764940751/1_a10rsj.webp",
+  "https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764940752/2_agcod6.webp",
+  "https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764940750/3_n3hjcf.webp",
 ];
 
 export default function Hero() {

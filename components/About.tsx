@@ -26,7 +26,7 @@ const HeroSection = () => {
         className="absolute inset-0 w-full h-full z-[-1]"
       >
         <Image
-          src="/3.jpg"
+          src="https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764940750/3_n3hjcf.webp"
           alt="Squad Link - Professional uniforms"
           fill
           className="object-cover"
@@ -116,7 +116,7 @@ const IntroductionSection = () => {
           className="relative w-full h-full min-h-[400px] lg:min-h-[700px]"
         >
           <Image
-            src="/1.jpg"
+            src="https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764940751/1_a10rsj.webp"
             alt="Squad Link - Professional uniform design"
             fill
             className="object-cover"
@@ -206,7 +206,7 @@ const WhoWeAreSection = () => {
           className="relative w-full h-full min-h-[400px] lg:min-h-[700px] order-1 lg:order-2"
         >
           <Image
-            src="/2.jpg"
+            src="https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764940752/2_agcod6.webp"
             alt="Squad Link - Professional uniform design"
             fill
             className="object-cover"

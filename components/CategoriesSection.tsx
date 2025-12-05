@@ -9,7 +9,7 @@ const categories = [
   {
     id: "Premium Polo Shirts",
     title: "Premium Polo Shirts",
-    image: "/polo.jpeg",
+    image: "https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764942253/polo_tk4bda.webp",
     gradient: "from-[#DA0037] via-[#DA0037] to-[#DA0037]",
     position: "col-2-row-1", // Center top
     description: "High-quality polos designed for comfort, durability, and a sharp uniform look. Available with custom embroidery and full color options.",
@@ -17,7 +17,7 @@ const categories = [
   {
     id: "Executive Shirts",
     title: "Executive Shirts",
-    image: "/shirts.jpeg",
+    image: "https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764942253/shirts_mnd6j2.webp",
     gradient: "from-[#DA0037] to-[#DA0037]",
     position: "col-3-row-1", // Top right
     description: "Elegant, tailored shirts made for hotels, reception teams, and corporate staff. Premium fabrics and flawless finishing for a polished appearance.",
@@ -25,7 +25,7 @@ const categories = [
   {
     id: "Security Cargo Pants",
     title: "Security Cargo Pants",
-    image: "/2-1.png",
+    image: "https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764940753/2-1_vx64h2.webp",
     gradient: "from-[#DA0037] to-[#DA0037]",
     position: "col-1-row-2", // Bottom left
     description: "Reinforced, multi-pocket cargo pants built for strength and everyday performance. Perfect for security and industrial teams.",
@@ -33,7 +33,7 @@ const categories = [
   {
     id: "Chef Jackets",
     title: "Chef Jackets",
-    image: "/chef.jpeg",
+    image: "https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764940753/chef_yaoqz0.webp",
     gradient: "from-[#DA0037] to-[#DA0037]",
     position: "col-3-row-2", // Bottom right
     description: "Professional chef coats crafted for heat, comfort, and long work hours. Stylish cuts with durable stitching and breathable materials.",
@@ -41,7 +41,7 @@ const categories = [
   {
     id: "Custom Caps",
     title: "Custom Caps",
-    image: "/2.png",
+    image: "https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764940753/2_zrtrxq.webp",
     gradient: "from-[#DA0037] to-[#DA0037]",
     position: "col-1-row-1", // Top left
     description: "High-quality caps available in multiple colors with your logo embroidered. Ideal for staff identity, events, and promotional use.",
@@ -49,7 +49,7 @@ const categories = [
   {
     id: "Ties & Accessories",
     title: "Ties & Accessories",
-    image: "/4.png",
+    image: "https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764940753/4_yy4tbf.webp",
     gradient: "from-[#DA0037] to-[#DA0037]",
     position: "col-2-row-2", // Center bottom
     description: "Finishing pieces that complete the uniform — including ties, scarves, name badges, and personalized accessories.",

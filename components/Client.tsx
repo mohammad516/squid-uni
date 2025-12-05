@@ -29,7 +29,7 @@ const HeroSection = () => {
         className="absolute inset-0 w-full h-full z-[-1]"
       >
         <Image
-          src="/3.jpg"
+          src="https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764940750/3_n3hjcf.webp"
           alt="Revive Wellness Center - Serene wellness environment"
           fill
           className="object-cover"
