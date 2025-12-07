@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Mail, Heart, Facebook, Instagram } from "lucide-react";
 import { FaWhatsapp, FaTiktok } from "react-icons/fa6";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 // Back to Top Button Component
@@ -114,26 +115,28 @@ const Footer = () => (
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           
           {/* Logo Section */}
-          <motion.div 
-            className="flex items-center group"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            whileHover={{ 
-              scale: 1.05,
-              filter: "drop-shadow(0 0 25px rgba(218, 0, 55, 0.4))"
-            }}
-          >
-            <Image 
-              src="https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764940757/newlogo_mhmsom.webp" 
-              alt="Squadlink Logo" 
-              width={180}
-              height={180}
-              className="h-28 w-28 sm:h-32 sm:w-32 md:h-36 md:w-36 lg:h-40 lg:w-40 xl:h-44 xl:w-44 object-contain transition-all duration-300 group-hover:scale-110"
-              priority
-            />
-          </motion.div>
+          <Link href="/">
+            <motion.div 
+              className="flex items-center group"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ 
+                scale: 1.05,
+                filter: "drop-shadow(0 0 25px rgba(218, 0, 55, 0.4))"
+              }}
+            >
+              <Image 
+                src="https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764940757/newlogo_mhmsom.webp" 
+                alt="Squadlink Logo" 
+                width={180}
+                height={180}
+                className="h-28 w-28 sm:h-32 sm:w-32 md:h-36 md:w-36 lg:h-40 lg:w-40 xl:h-44 xl:w-44 object-contain transition-all duration-300 group-hover:scale-110 cursor-pointer"
+                priority
+              />
+            </motion.div>
+          </Link>
           
           {/* Social Media Icons */}
           <motion.div 

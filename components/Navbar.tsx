@@ -78,7 +78,7 @@ export default function Navbar() {
         }`}
       >
         {/* Left: Logo + Name */}
-        <div className="flex items-center relative">
+        <Link href="/" className="flex items-center relative">
           {/* Glow effect for dark backgrounds */}
           {!isContactPage && !isCategoryPage && !scrolled && (
             <div 
@@ -134,7 +134,7 @@ export default function Navbar() {
                 : scrolled
                 ? "h-24 w-24 md:h-28 md:w-28 lg:h-36 lg:w-36 xl:h-40 xl:w-40"
                 : "h-28 w-28 md:h-32 md:w-32 lg:h-40 lg:w-40 xl:h-44 xl:w-44"
-            } object-contain transition-all duration-300 relative z-10 ${
+            } object-contain transition-all duration-300 relative z-10 cursor-pointer ${
               isContactPage || isCategoryPage
                 ? ""
                 : scrolled
@@ -142,7 +142,7 @@ export default function Navbar() {
                 : "drop-shadow-[0_0_25px_rgba(255,255,255,1)] drop-shadow-[0_0_50px_rgba(255,255,255,0.8)] drop-shadow-[0_0_75px_rgba(255,255,255,0.5)]"
             }`}
           />
-        </div>
+        </Link>
 
         {/* Center: Links (desktop) */}
         <ul className="hidden md:flex md:gap-8 lg:gap-10">
@@ -335,9 +335,9 @@ export default function Navbar() {
           }`}
         >
           <div className="space-y-6 px-6 pb-8 pt-4">
-            <div className="flex items-center justify-center py-2">
-              <Image src="https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764940757/newlogo_mhmsom.webp" alt="Squadlink Logo" width={140} height={140} className="h-28 w-28 object-contain" />
-            </div>
+            <Link href="/" className="flex items-center justify-center py-2" onClick={() => setMenuOpen(false)}>
+              <Image src="https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764940757/newlogo_mhmsom.webp" alt="Squadlink Logo" width={140} height={140} className="h-28 w-28 object-contain cursor-pointer" />
+            </Link>
             <ul className={`divide-y ${isContactPage || isCategoryPage ? "divide-neutral-200 dark:divide-neutral-700" : scrolled ? "divide-neutral-200 dark:divide-neutral-700" : "divide-white/20"}`}>
               <li>
                 <Link 
