@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { getDb } from '@/libs/mongodb';
 
-export const revalidate = 10; // Revalidate every 10 seconds
+export const dynamic = 'force-dynamic'; // Force dynamic rendering since we use request.url
 
 export async function GET(request: Request) {
   try {
