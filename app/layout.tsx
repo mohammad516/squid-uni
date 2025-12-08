@@ -16,8 +16,8 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Squadlink",
-  description: "Squadlink is a premium uniform provider dedicated to delivering elegance, quality, and professionalism in every piece we create.",
+  title: "Squadlink-Professional Uniform Supplier in Lebanon",
+  description: "Squadlink is a professional uniform supplier based in Lebanon, serving clients locally and worldwide. We specialize in high-quality chef wear, security uniforms, corporate uniforms, hospital & housekeeping uniforms, school uniforms, and custom workwear for businesses across the Middle East, Europe, Africa, and international markets. We provide premium fabrics, precise tailoring, and reliable worldwide shipping. Our uniforms are designed for comfort, durability, and professional appearance, with full customization options including logo printing and embroidery. At Squadlink, we are committed to quality, consistency, and long-term client partnerships worldwide.",
 };
 
 export default function RootLayout({

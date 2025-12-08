@@ -53,6 +53,23 @@ export default function Navbar() {
     fetchCategories();
   }, []);
 
+  // Listen for custom event to open categories dropdown
+  useEffect(() => {
+    const handleOpenCategories = () => {
+      // Open mobile menu if it's closed (for mobile users)
+      if (!menuOpen) {
+        setMenuOpen(true);
+      }
+      // Open categories dropdown
+      setCategoriesDropdownOpen(true);
+      // Scroll to top if needed to see the navbar
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.addEventListener('openCategories', handleOpenCategories);
+    return () => window.removeEventListener('openCategories', handleOpenCategories);
+  }, [menuOpen]);
+
   return (
     <motion.header
       initial={{ opacity: 0, y: -20 }}

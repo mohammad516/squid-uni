@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const HERO_IMAGES = [
-  "https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764940751/1_a10rsj.webp",
+  "https://res.cloudinary.com/dp0wyn4dg/image/upload/v1765209492/wq_bjoo5h.webp",
   "https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764940752/2_agcod6.webp",
   "https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764940750/3_n3hjcf.webp",
 ];
@@ -272,8 +272,13 @@ export default function Hero() {
             </motion.a>
             
             <motion.a
-              href="/clients"
-              aria-label="View Clients"
+              href="#"
+              aria-label="View Products"
+              onClick={(e) => {
+                e.preventDefault();
+                // Dispatch custom event to open categories dropdown
+                window.dispatchEvent(new CustomEvent('openCategories'));
+              }}
               className="group relative inline-flex w-full sm:w-auto items-center justify-center rounded-full border-2 border-white/90 backdrop-blur-sm px-4 sm:px-8 py-2.5 sm:py-4 text-xs sm:text-base font-semibold text-white overflow-hidden min-h-[40px] sm:min-h-[56px]"
               whileHover={{ scale: 1.05, borderColor: "#DA0037" }}
               whileTap={{ scale: 0.95 }}

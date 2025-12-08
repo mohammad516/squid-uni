@@ -116,7 +116,7 @@ const IntroductionSection = () => {
           className="relative w-full h-full min-h-[400px] lg:min-h-[700px]"
         >
           <Image
-            src="https://res.cloudinary.com/dp0wyn4dg/image/upload/v1764940751/1_a10rsj.webp"
+            src="https://res.cloudinary.com/dp0wyn4dg/image/upload/v1765209492/wq_bjoo5h.webp"
             alt="Squad Link - Professional uniform design"
             fill
             className="object-cover"
@@ -145,7 +145,10 @@ const IntroductionSection = () => {
             {/* Text Content */}
             <div className="space-y-6">
               <p className="text-base md:text-lg text-[#444444] leading-relaxed">
-                Squad Link provides high-quality uniforms for hospitality, security, retail, and corporate teams. We design and produce durable, elegant, and professional uniforms that match your brand identity.
+                SQUAD LINK is a professional uniform supplier based in Lebanon, serving clients locally and worldwide. We specialize in high-quality chef wear, security uniforms, corporate uniforms, hospital & housekeeping uniforms, school uniforms, and custom workwear for businesses across the Middle East, Europe, Africa, and international markets.
+              </p>
+              <p className="text-base md:text-lg text-[#444444] leading-relaxed">
+                We provide premium fabrics, precise tailoring, and reliable worldwide shipping. Our uniforms are designed for comfort, durability, and professional appearance, with full customization options including logo printing and embroidery. At SQUAD LINK, we are committed to quality, consistency, and long-term client partnerships worldwide.
               </p>
             </div>
           </div>
@@ -189,10 +192,7 @@ const WhoWeAreSection = () => {
             {/* Text Content */}
             <div className="space-y-6">
               <p className="text-base md:text-lg text-[#444444] leading-relaxed">
-                Squad Link is a premium uniform provider dedicated to delivering elegance, quality, and professionalism in every piece we create. With a focus on quality, durability, and modern styling, we create uniforms for hotels, restaurants, security teams, corporate staff, retail workers, and industrial crews.
-              </p>
-              <p className="text-base md:text-lg text-[#444444] leading-relaxed">
-                Our work is guided by honesty, commitment, and strict respect for delivery deadlines — values that our clients trust deeply.
+              Squad Link is a Lebanon-based professional uniform manufacturer and supplier, specializing in high-quality customized uniforms for hospitality, corporate, medical, security, industrial, and educational sectors. We deliver durable, stylish, and brand-focused uniforms with worldwide shipping and trusted service.
               </p>
             </div>
           </div>
