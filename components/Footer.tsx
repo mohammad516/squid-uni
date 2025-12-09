@@ -155,18 +155,20 @@ const Footer = () => (
           {/* Copyright and Email */}
           <div className="flex flex-col lg:flex-row items-center gap-3 lg:gap-6 text-center lg:text-left">
             <motion.div 
-              className="text-sm text-[#171717] flex items-center gap-1"
+              className="text-sm text-[#171717] dark:text-neutral-300 flex items-center justify-center gap-1.5 flex-wrap px-2"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              © {new Date().getFullYear()} SquadLink. Crafted with{" "}
+              <span className="font-medium">Copyright © {new Date().getFullYear()} SQUAD LINK UNIFORM.</span>
+              <span className="text-[#444444] dark:text-neutral-400">All Rights Reserved.</span>
               <motion.div
+                className="inline-flex items-center"
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
               >
-                <Heart className="w-4 h-4 text-red-500" />
+                <Heart className="w-4 h-4 text-[#DA0037] mx-0.5" fill="#DA0037" />
               </motion.div>
             </motion.div>
             

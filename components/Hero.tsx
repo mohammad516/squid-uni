@@ -218,7 +218,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
             >
-              It's Not About Brand
+              It's Not Just Uniform
             </motion.span>
             <motion.span
               className="font-semibold text-white"
@@ -226,7 +226,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.8 }}
             >
-              It's About Style
+              It's Your Professional Identity
             </motion.span>
           </motion.p>
           <motion.div 
