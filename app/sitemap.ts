@@ -2,9 +2,8 @@ import { MetadataRoute } from 'next';
 import { getDb } from '@/libs/mongodb';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Get base URL from environment variable or use default
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL 
-    || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://squadlink.com'); // Replace with your actual domain
+  // Base URL
+  const baseUrl = 'https://squadlinkuniform.com';
 
   // Get current date for lastModified
   const currentDate = new Date();
