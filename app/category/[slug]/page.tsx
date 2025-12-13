@@ -86,7 +86,7 @@ export default function CategoryPage() {
     return (
       <main className="relative w-full overflow-x-hidden">
         <Navbar />
-        <div className="min-h-screen flex items-center justify-center bg-[#EAEAEA] pt-24">
+        <div className="min-h-screen flex items-center justify-center bg-[#EAEAEA] pt-24 lg:pt-32">
           <div className="text-center">
             <p className="text-lg text-[#252A34]/60">Loading category...</p>
           </div>
@@ -100,7 +100,7 @@ export default function CategoryPage() {
     return (
       <main className="relative w-full overflow-x-hidden">
         <Navbar />
-        <div className="min-h-screen flex items-center justify-center bg-[#EAEAEA] pt-24">
+        <div className="min-h-screen flex items-center justify-center bg-[#EAEAEA] pt-24 lg:pt-32">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-[#252A34] mb-4">Category Not Found</h1>
             <p className="text-[#252A34]/60 mb-6">The category you're looking for doesn't exist.</p>
@@ -120,7 +120,7 @@ export default function CategoryPage() {
   return (
     <main className="relative w-full overflow-x-hidden">
       <Navbar />
-      <div className="min-h-screen bg-[#EAEAEA] pt-24">
+      <div className="min-h-screen bg-[#EAEAEA] pt-24 lg:pt-32">
         <div className="container mx-auto px-4 py-12 md:py-16">
           <Breadcrumb categoryName={category.name} />
 

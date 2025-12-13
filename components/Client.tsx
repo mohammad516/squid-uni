@@ -312,7 +312,7 @@ const CustomersLogosSection = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.8 }}
-      className="py-20 md:py-28 bg-gradient-to-br from-[#EDEDED] via-white to-[#EDEDED]"
+      className="py-20 md:py-28 lg:pt-32 bg-gradient-to-br from-[#EDEDED] via-white to-[#EDEDED]"
     >
       <div className="max-w-7xl mx-auto px-6">
         <motion.div

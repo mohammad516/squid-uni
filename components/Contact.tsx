@@ -12,7 +12,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden w-full">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden w-full pt-24 lg:pt-32">
       {/* Animated Background matching AboutPreviewSection */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#EDEDED] via-[#EDEDED] to-[#DA0037]/20">
         {/* Subtle background pattern */}
@@ -586,7 +586,7 @@ const Contact = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(8,217,214,0.15)_1px,transparent_0)] bg-[length:20px_20px]" />
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 overflow-x-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:pt-32 relative z-10 overflow-x-hidden">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-20">
             {/* Left Column - Contact Information */}
             <div className="space-y-12 w-full min-w-0">

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://squadlinkuniform.com/sitemap.xml
+
