@@ -1,0 +1,145 @@
+Return-Path: <>
+Delivered-To: revive@revivecenterlb.com
+Received: from DIR-06 ([10.50.24.17])
+	by localhost with LMTP
+	id 4g/FFgPRMmmXrToA0J78UA
+	(envelope-from <>)
+	for <revive@revivecenterlb.com>; Fri, 05 Dec 2025 07:33:07 -0500
+Received: from mta-02.privateemail.com ([10.50.14.12])
+	by DIR-06 with LMTP
+	id 0BY1FgPRMmkAwDcAUryMpA
+	(envelope-from <>)
+	for <revive@revivecenterlb.com>; Fri, 05 Dec 2025 07:33:07 -0500
+Received: from asp-relay-pe.jellyfish.systems (unknown [162.255.118.7])
+	by mta-02.privateemail.com (Postfix) with ESMTP id 4dN9l72Z7Pz3hhT6
+	for <revive@revivecenterlb.com>; Fri,  5 Dec 2025 07:33:07 -0500 (EST)
+Authentication-Results: asp-relay-pe.jellyfish.systems;
+	dkim=none;
+	dmarc=pass (policy=none) header.from=pe-b.jellyfish.systems;
+	spf=pass (asp-relay-pe.jellyfish.systems: domain of out-11.pe-b.jellyfish.systems designates 198.54.127.77 as permitted sender) smtp.helo=out-11.pe-b.jellyfish.systems
+Received: from out-11.pe-b.jellyfish.systems (out-11.pe-b.jellyfish.systems [198.54.127.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-pe.jellyfish.systems (Postfix) with ESMTPS id 4dN9l14JN1zBrMN
+	for <revive@revivecenterlb.com>; Fri, 05 Dec 2025 12:33:01 +0000 (UTC)
+Received: by pe-b.jellyfish.systems (Postfix)
+	id 4dN9l12Pb9zFq0f; Fri, 05 Dec 2025 12:33:01 +0000 (UTC)
+Date: Fri, 05 Dec 2025 12:33:01 +0000 (UTC)
+From: Mail Delivery System <MAILER-DAEMON@pe-b.jellyfish.systems>
+Subject: Undelivered Mail Returned to Sender
+To: revive@revivecenterlb.com
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="4dN9l052ZHzFpyM.1764937981/pe-b.jellyfish.systems"
+Content-Transfer-Encoding: 8bit
+Message-Id: <4dN9l12Pb9zFq0f@pe-b.jellyfish.systems>
+X-Jellyfish-No-Auto-Response: 1
+
+This is a MIME-encapsulated message.
+
+--4dN9l052ZHzFpyM.1764937981/pe-b.jellyfish.systems
+Content-Description: Notification
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+This is the mail system at host pe-b.jellyfish.systems.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<ibrahim_racho106@hotmail.com>: host
+    hotmail-com.olc.protection.outlook.com[52.101.42.8] said: 550 5.7.1
+    Unfortunately, messages from [198.54.127.73] weren't sent. Please contact
+    your Internet service provider since part of their network is on our block
+    list (S3150). You can also refer your provider to
+    http://mail.live.com/mail/troubleshooting.aspx#errors. [Name=Protocol
+    Filter Agent][AGT=PFA][MxId=11BC5D53844B2C62]
+    [CO1PEPF000044EE.namprd05.prod.outlook.com 2025-12-05T12:33:01.353Z
+    08DE2EA9C9544A64] (in reply to MAIL FROM command)
+
+--4dN9l052ZHzFpyM.1764937981/pe-b.jellyfish.systems
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; pe-b.jellyfish.systems
+X-Postfix-Queue-ID: 4dN9l052ZHzFpyM
+X-Postfix-Sender: rfc822; revive@revivecenterlb.com
+Arrival-Date: Fri, 05 Dec 2025 12:33:00 +0000 (UTC)
+
+Final-Recipient: rfc822; ibrahim_racho106@hotmail.com
+Original-Recipient: rfc822;ibrahim_racho106@hotmail.com
+Action: failed
+Status: 5.7.1
+Remote-MTA: dns; hotmail-com.olc.protection.outlook.com
+Diagnostic-Code: smtp; 550 5.7.1 Unfortunately, messages from [198.54.127.73]
+    weren't sent. Please contact your Internet service provider since part of
+    their network is on our block list (S3150). You can also refer your
+    provider to http://mail.live.com/mail/troubleshooting.aspx#errors.
+    [Name=Protocol Filter Agent][AGT=PFA][MxId=11BC5D53844B2C62]
+    [CO1PEPF000044EE.namprd05.prod.outlook.com 2025-12-05T12:33:01.353Z
+    08DE2EA9C9544A64]
+
+--4dN9l052ZHzFpyM.1764937981/pe-b.jellyfish.systems
+Content-Description: Undelivered Message Headers
+Content-Type: text/rfc822-headers
+Content-Transfer-Encoding: 8bit
+
+Return-Path: <revive@revivecenterlb.com>
+NC-Service-Type: out-pe-b
+Received: from prod-lbout-phx.jellyfish.systems (new-01.privateemail.com [198.54.118.220])
+	by pe-b.jellyfish.systems (Postfix) with ESMTPA id 4dN9l052ZHzFpyM
+	for <ibrahim_racho106@hotmail.com>; Fri, 05 Dec 2025 12:33:00 +0000 (UTC)
+Received: from MTA-13.privateemail.com (unknown [10.50.14.29])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by NEW-01.privateemail.com (Postfix) with ESMTPS id 4dN9l04JrRz3hhT9
+	for <ibrahim_racho106@hotmail.com>; Fri,  5 Dec 2025 07:33:00 -0500 (EST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=revivecenterlb.com;
+	s=default; t=1764937980;
+	bh=9op+7xzLCgBOltVttW8d4EgI1JSLImmGQougW4KxL3c=;
+	h=From:Date:Subject:To:Cc:From;
+	b=UOSEfZOZ/x9GyOm+k+mePxShORQYwtEnggNY+4hAysu8aSXiw9UvOe7UBpOp+GVwT
+	 Gwp5lPeF7Vxb+Po8Kxz4mPgvH0gYblNSUEeR77fYclY1y+OQelIkJY0E1/MRutJQox
+	 4CFubd6iFd9y/pwt/vSX5klxUx8x1InLsO55qumYaHzk66bdzyyrEdRl387Ku4n1mc
+	 6zwEGz2wxKmbGAsD4wXv6/7NmwpunH8SDvHsRnGk6gAIg8nqlurWY4+fLaws27icrM
+	 O3AgO5MN4Zu6f3I7M7anfUGeb0dv+QAIBE3gLeOgHkn7cl3GjLm4L+mKJ8EVcPuiMB
+	 5/a+n6Qow5OYw==
+Received: from mta-13.privateemail.com (localhost [127.0.0.1])
+	by mta-13.privateemail.com (Postfix) with ESMTP id 4dN9l01cRVz3hhTX
+	for <ibrahim_racho106@hotmail.com>; Fri,  5 Dec 2025 07:33:00 -0500 (EST)
+Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com [209.85.216.42])
+	by mta-13.privateemail.com (Postfix) with ESMTPA
+	for <ibrahim_racho106@hotmail.com>; Fri,  5 Dec 2025 07:32:59 -0500 (EST)
+Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-343514c7854so1138888a91.1
+        for <ibrahim_racho106@hotmail.com>; Fri, 05 Dec 2025 04:32:59 -0800 (PST)
+X-Gm-Message-State: AOJu0YxN04KKLURAVjbMJupYj8GN5ZZLmsHYIsbcHiUnwaCEzKyIF26s
+	mRExCn2ImHowbm689wnQ9/nUHC3cQINZ4TVbw6m6econbLdAcwDzF6jLidExT+gJz+6u+Dg0xEn
+	9l1lZn03/RmK2W9rWE/7XCGhOO0tEqno=
+X-Google-Smtp-Source: AGHT+IHmRnwdMntzaYGV+m5iRtD+sKjkCzkkgpvYBXo5Uiw2AUl7cTgxzb45AuEXbSqI0tQYS4qvdTuVHlbkucumiyI=
+X-Received: by 2002:a17:90b:5444:b0:341:1a50:2ea9 with SMTP id
+ 98e67ed59e1d1-34943929cb2mr6217737a91.16.1764937979387; Fri, 05 Dec 2025
+ 04:32:59 -0800 (PST)
+MIME-Version: 1.0
+From: ReviveWellnessCenter <revive@revivecenterlb.com>
+Date: Fri, 5 Dec 2025 14:32:46 +0200
+X-Gmail-Original-Message-ID: <CAKHuW2tpe5_9b-Kiyk6bASjMHDi7CYqQ1ePTEGJXwkYtBZiaXA@mail.gmail.com>
+X-Gm-Features: AWmQ_bn36kst5cvH4T2QktGlXNV-yQ67HiqlRAhLfLhQwxb66xBAnQXg2rTUOGo
+Message-ID: <CAKHuW2tpe5_9b-Kiyk6bASjMHDi7CYqQ1ePTEGJXwkYtBZiaXA@mail.gmail.com>
+Subject: Job Offer from Revive Wellness Center
+To: "ibrahim_racho106@hotmail.com" <ibrahim_racho106@hotmail.com>
+Cc: johnsaba@hotmail.com
+Content-Type: multipart/mixed; boundary="0000000000005026c7064533a572"
+X-Virus-Scanned: ClamAV using ClamSMTP
+X-Rspamd-Queue-Id: 4dN9l052ZHzFpyM
+
+--4dN9l052ZHzFpyM.1764937981/pe-b.jellyfish.systems--

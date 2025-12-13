@@ -557,7 +557,7 @@ const MapSection = () => {
         className="bg-white/70 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-white/50"
       >
      <iframe
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13250.933424395032!2d35.5139586!3d33.8707621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f170c53009f55%3A0x9ba0c21df9873b90!2sTayouneh%2C%20Beirut!5e0!3m2!1sen!2slb!4v1764594741283!5m2!1sen!2slb"
+  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3312.800919126395!2d35.511970001117454!3d33.86902116458121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzPCsDUyJzA4LjEiTiAzNcKwMzAnNDYuNiJF!5e0!3m2!1sen!2slb!4v1765646461690!5m2!1sen!2slb"
   width="100%"
   height="400"
   style={{ border: 0 }}
